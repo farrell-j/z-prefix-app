@@ -14,9 +14,15 @@ app.use(bodyParser.json());
 app.use(cors()); 
 app.use('/inventory', inventoryRoutes); 
 
-app.get('/', (req, res) => {
-  res.send('Inventory Tracker')
-});
+app.get('/inventory', async (req, res) => {
+    try {
+        const inventory = await db.select('*').from('items');
+        res.json(inventory);
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: 'Internal Server Error'});
+    }
+    });
 
 app.listen(port, () => {
   console.log(`Server listening at http://localhost:${port}`)

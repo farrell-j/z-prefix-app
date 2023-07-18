@@ -6,13 +6,12 @@
 module.exports = {
 
   development: {
-    client: 'postgres',
+    client: 'pg',
     connection: {
     host: '127.0.0.1',
     user : 'postgres', 
     password : 'postgres',
     database : 'inventory_db',
-      filename: './dev.sqlite3',
     },
     migrations: {
       tableName: 'knex_migrations'

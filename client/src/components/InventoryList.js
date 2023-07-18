@@ -22,8 +22,9 @@ function InventoryList() {
             <h1>Inventory List</h1>
             {items.map(item => (
                 <div key={item.id}>
-                    <h2>{item.name}</h2>
+                    <h2>{item.item_name}</h2>
                     <p>{item.description}</p>
+                    <p>{item.quantity}</p>
                   </div>  
             ))}
         </div>
