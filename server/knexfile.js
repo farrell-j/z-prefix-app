@@ -6,9 +6,16 @@
 module.exports = {
 
   development: {
-    client: 'sqlite3',
+    client: 'postgres',
     connection: {
-      filename: './dev.sqlite3'
+    host: '127.0.0.1',
+    user : 'postgres', 
+    password : 'postgres',
+    database : 'inventory_db',
+      filename: './dev.sqlite3',
+    },
+    migrations: {
+      tableName: 'knex_migrations'
     }
   },
 
