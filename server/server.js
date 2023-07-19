@@ -24,6 +24,30 @@ app.get('/inventory', async (req, res) => {
     }
     });
 
+app.post('/login'), async (req, res) => {
+    const {username, password} = req.body;
+
+    try {
+       const user = await db('users')
+       .where({ username, password})
+       .first(); 
+       
+       if (user) {
+        if (password === user.password) {
+        res.json({ message: 'Welcome'});
+       } else {
+        res.status(401).json({ message: 'Incorrect Password'});
+       }
+    } else {
+        res.status(401).json({ message: 'Username not found'});
+
+       }
+    } catch (error) {
+        console.error('Error during login:', error);
+        res.status(500).json({ message: 'Server Error'});
+    }
+}
+
 app.listen(port, () => {
   console.log(`Server listening at http://localhost:${port}`)
 });
