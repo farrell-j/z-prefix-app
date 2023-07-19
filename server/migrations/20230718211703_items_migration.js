@@ -3,14 +3,17 @@
  * @returns { Promise<void> }
  */
 exports.up = function(knex) {
-    return knex.schema.createTable('items', function (table) {
-        table.increments('id').primary();
-        table.string('name').notNullable();
-        table.string('description');
-        table.integer('quantity');
+    return knex.schema.hasTable('items').then (function (exists) {
+        if (!exists)  {
+            return knex.schema.createTable('items', function(table) {
+                table.increments('id').primary();
+                table.string('name').notNullable();
+                table.string('description');
+                table.integer('quantity');
+            });
+        }    
     });
 };
-
 /**
  * @param { import("knex").Knex } knex
  * @returns { Promise<void> }
