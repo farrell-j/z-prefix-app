@@ -1,7 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import EditItem from './EditItem';
+import { AuthContext } from './Auth.js';
 
 function InventoryList() {
+    const { loggedIn } = useContext(AuthContext);
     const [items, setItems] = useState([]);
     const [currentItem, setCurrentItem] = useState(null);
 
@@ -49,8 +51,7 @@ function InventoryList() {
                     <p>Description: &ensp; <strong>{item.description}</strong></p>
                     <p>Quantity: &ensp;<strong>{item.quantity}</strong></p>
                     <button onClick={() => setCurrentItem(item)}>Edit</button>
-                    <button onClick={() => handleDelete(item.id)}>Delete</button>
-
+                    {loggedIn && <button onClick={() => handleDelete(item.id)}>Delete</button>}
                 </div>
             ))}
         </div>
