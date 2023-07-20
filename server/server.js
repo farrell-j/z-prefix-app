@@ -71,6 +71,25 @@ app.post('/inventory', async (req, res) => {
     }
 });
 
+app.put('/inventory/:id', async (req, res) => {
+    const { id } = req.params; 
+    const { name, description, quantity } = req.body; 
+
+    try {
+        // Update an item
+        await db('items')
+            .where({ id })
+            .update({ name, description, quantity });
+
+        res.json({ message: "Item successfully updated" });
+
+    } catch (error) {
+        console.error('Error:', error);
+        res.status(500).json({ message: 'Server Error', error: error.message });
+    }
+});
+
+
 
 // app.post('/users'), async (req, res) => {
 //     const {username, password} = req.body;
