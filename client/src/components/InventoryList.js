@@ -41,17 +41,18 @@ function InventoryList() {
     return (
         <div>
             <h1>Inventory List</h1>
+            {currentItem && <EditItem currentItem={currentItem} onUpdate={handleUpdate} />}
+
             {items.map(item => (
                 <div key={item.id}>
-                    <h2>{item.name}</h2>
-                    <p>{item.description}</p>
-                    <p>{item.quantity}</p>
+                    <h2>&ensp;{item.name}</h2>
+                    <p>Description: &ensp; <strong>{item.description}</strong></p>
+                    <p>Quantity: &ensp;<strong>{item.quantity}</strong></p>
                     <button onClick={() => setCurrentItem(item)}>Edit</button>
                     <button onClick={() => handleDelete(item.id)}>Delete</button>
 
                 </div>
             ))}
-            {currentItem && <EditItem currentItem={currentItem} onUpdate={handleUpdate} />}
         </div>
     );
 }

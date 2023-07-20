@@ -31,9 +31,7 @@ const App = () => {
            <li>
              <Link to="/add-item">Add Item</Link>
            </li>
-           <li>
-             <Link to="/edit-item">Edit Item</Link>
-           </li>
+           
            <AuthContext.Consumer>
              {({ loggedIn, logout }) => loggedIn && (
                <li>
