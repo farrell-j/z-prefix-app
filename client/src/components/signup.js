@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-
+import './Signup.css';
 const SignupForm = () => {
     const navigate = useNavigate();
     const [username, setUsername] = useState('');
@@ -32,7 +32,7 @@ const SignupForm = () => {
     };
 
     return (
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className="form">
             <label htmlFor="username">Username:</label>
             <input
                 type="username"

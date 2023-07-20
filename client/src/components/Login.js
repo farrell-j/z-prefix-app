@@ -1,6 +1,7 @@
 import React, { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from './Auth.js';
+import './Login.css';
 
 
 const LoginForm = () => {
@@ -34,7 +35,7 @@ const LoginForm = () => {
     };
 
     return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className="form">
         <label htmlFor="username">Username:</label>
         <input
             type="username"
