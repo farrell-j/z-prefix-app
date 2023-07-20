@@ -36,6 +36,27 @@ app.get('/users', async (req, res) => {
     }
     });
 
+app.post('/users/signup', async (req, res) => {
+    const { username, password } = req.body; 
+    
+    try {
+        // Check if the username already exists
+        const existingUser = await db('users').where({ username }).first();
+        if (existingUser) {
+            return res.status(409).json({ message: "Username not available" });
+        }
+        // If the username does not exist, create a new user
+        const newUser = await db('users').insert({ username, password });
+        
+        res.json({ message: "Account successfully created" });
+    
+    } catch (error) {
+        console.error('Error:', error);
+        res.status(500).json({ message: 'Server Error', error: error.message });
+    }
+});
+
+
 // app.post('/users'), async (req, res) => {
 //     const {username, password} = req.body;
 

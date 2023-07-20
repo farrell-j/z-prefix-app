@@ -1,11 +1,15 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const SignupForm = () => {
+    const navigate = useNavigate();
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
 
     const handleSubmit = async (event) => {
         event.preventDefault();
+        console.log({ username, password });
+
 
         try {
             const response = await fetch('http://localhost:3001/users/signup', {
@@ -18,6 +22,7 @@ const SignupForm = () => {
 
             if (response.ok) {
                 console.log('Signup Successful');
+                navigate('/inventory');
             } else {
                 console.error('Signup Failed');
             }

@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+
 
 const LoginForm = () => {
+    const navigate = useNavigate();
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
 
@@ -17,6 +20,7 @@ const LoginForm = () => {
             });
             if (response.ok) {
                 console.log('Login Success');
+                navigate('/inventory');
             } else {
                 console.error('Login Failed');
             }    

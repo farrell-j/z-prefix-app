@@ -28,7 +28,7 @@ router.post('/', async (req, res) => {
         const user = await knex('users').where({ username }).first();
         if (user) {
             if (password === user.password) {
-                res.json({ message: "Welcome"});
+                res.json({ message: "Welcome", id: user.id});
             } else {
                 res.status(401).json({ message: 'Incorrect password' });
             }
