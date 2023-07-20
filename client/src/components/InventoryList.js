@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useContext } from 'react';
 import EditItem from './EditItem';
 import { AuthContext } from './Auth.js';
+import './InventoryList.css';
+
 
 function InventoryList() {
     const { loggedIn } = useContext(AuthContext);
@@ -41,12 +43,12 @@ function InventoryList() {
     
 
     return (
-        <div>
+        <div className="inventory-list">
             <h1>Inventory List</h1>
             {currentItem && <EditItem currentItem={currentItem} onUpdate={handleUpdate} />}
 
             {items.map(item => (
-                <div key={item.id}>
+                <div key={item.id} className="inventory-item">
                     <h2>&ensp;{item.name}</h2>
                     <p>Description: &ensp; <strong>{item.description}</strong></p>
                     <p>Quantity: &ensp;<strong>{item.quantity}</strong></p>

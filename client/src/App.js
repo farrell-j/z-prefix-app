@@ -6,6 +6,8 @@ import InventoryList from './components/InventoryList';
 import LoginForm from './components/login.js';
 import SignupForm from './components/signup.js';
 import { AuthProvider, AuthContext } from './components/Auth.js';
+import './Navbar.css'; 
+import './App.css';
 
 
 const App = () => {

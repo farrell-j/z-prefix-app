@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from "react-router-dom";
+import './AddItem.css';
 
 
 function AddItem() {
@@ -22,7 +23,7 @@ function AddItem() {
     };
 
     return (
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit}className="form">
             <input type="text" placeholder="Item name" value={name} onChange={(e) => setName(e.target.value)} />
             <input type="text" placeholder="Item description" value={description} onChange={(e) => setDescription(e.target.value)} />
             <input type="number" placeholder="Quantity" value={quantity} onChange={(e) => setQuantity(e.target.value)} />

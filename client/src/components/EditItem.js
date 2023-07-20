@@ -1,6 +1,7 @@
 import React, { useContext, useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from './Auth.js';
+import './EditItem.css';
 
 
 function EditItem({ currentItem, onUpdate }) {
@@ -51,7 +52,7 @@ function EditItem({ currentItem, onUpdate }) {
     }
 
     return (
-        <form onSubmit={handleSubmit}>
+        <form className="edit-form" onSubmit={handleSubmit}>
             <input type="text" placeholder="Item name" value={name} onChange={(e) => setName(e.target.value)} />
             <input type="text" placeholder="Item description" value={description} onChange={(e) => setDescription(e.target.value)} />
             <input type="number" placeholder="Quantity" value={quantity} onChange={(e) => setQuantity(e.target.value)} />
