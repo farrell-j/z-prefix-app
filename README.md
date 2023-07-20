@@ -1,11 +1,11 @@
 # z-prefix-app
 
 ## Setup
-Requirements
-Node.js
-npm (usually comes bundled with Node.js)
-Create React App
-Docker
+Requirements:
+Node.js,
+npm (usually comes bundled with Node.js),
+Create React App,
+Docker, &
 Postgresql
 
 ## Application Usage
