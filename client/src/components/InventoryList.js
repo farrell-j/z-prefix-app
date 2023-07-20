@@ -28,6 +28,16 @@ function InventoryList() {
         fetchItems();
     };
 
+    const handleDelete = (id) => {
+        fetch(`http://localhost:3001/inventory/${id}`, {
+            method: 'DELETE',
+        }).then(() => {
+            // Remove the item
+            setItems(items.filter(item => item.id !== id));
+        });
+    }
+    
+
     return (
         <div>
             <h1>Inventory List</h1>
@@ -37,6 +47,8 @@ function InventoryList() {
                     <p>{item.description}</p>
                     <p>{item.quantity}</p>
                     <button onClick={() => setCurrentItem(item)}>Edit</button>
+                    <button onClick={() => handleDelete(item.id)}>Delete</button>
+
                 </div>
             ))}
             {currentItem && <EditItem currentItem={currentItem} onUpdate={handleUpdate} />}
