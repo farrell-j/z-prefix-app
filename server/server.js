@@ -56,6 +56,21 @@ app.post('/users/signup', async (req, res) => {
     }
 });
 
+app.post('/inventory', async (req, res) => {
+    const { name, description, quantity } = req.body; 
+
+    try {
+        // Add a new item
+        const newItem = await db('items').insert({ name, description, quantity });
+
+        res.json({ message: "Item successfully created", item: newItem });
+
+    } catch (error) {
+        console.error('Error:', error);
+        res.status(500).json({ message: 'Server Error', error: error.message });
+    }
+});
+
 
 // app.post('/users'), async (req, res) => {
 //     const {username, password} = req.body;
