@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
+import { useNavigate } from "react-router-dom";
+
 
 function AddItem() {
     const [name, setName] = useState("");
     const [description, setDescription] = useState("");
     const [quantity, setQuantity] = useState("");
+    const navigate = useNavigate(); 
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -14,7 +17,7 @@ function AddItem() {
             },
             body: JSON.stringify({name, description, quantity}),
         }).then(() => {
-        
+            navigate("/inventory");
         });
     };
 

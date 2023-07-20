@@ -1,9 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { AuthContext } from './Auth.js';
 
 
 const LoginForm = () => {
     const navigate = useNavigate();
+    const { setLoggedIn } = useContext(AuthContext);
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
 
@@ -20,9 +22,11 @@ const LoginForm = () => {
             });
             if (response.ok) {
                 console.log('Login Success');
+                setLoggedIn(true);
                 navigate('/inventory');
             } else {
                 console.error('Login Failed');
+                setLoggedIn(false);
             }    
         } catch (error) {
                 console.error('Error during login:', error);
