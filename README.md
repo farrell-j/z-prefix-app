@@ -8,7 +8,7 @@ Create React App
 Docker
 Postgresql
 
-##Application Usage
+## Application Usage
 The application provides the following functionality:
 
 Login and Signup: Users can create an account and log in.
@@ -17,7 +17,7 @@ Add Inventory Item: All users can add new inventory items.
 Edit Inventory Item: Only Logged-in users can edit existing inventory items.
 Delete Inventory Item: Only Logged-in users can delete existing inventory items.
 
-##Contributing
+## Contributing
 Please follow the standard Fork & Pull Request workflow if you want to contribute:
 
 Fork the repo on GitHub
