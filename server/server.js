@@ -57,11 +57,12 @@ app.post('/users/signup', async (req, res) => {
 });
 
 app.post('/inventory', async (req, res) => {
-    const { name, description, quantity } = req.body; 
+    console.log(req.body); 
+    const { name, description, quantity, username } = req.body; 
 
     try {
         // Add a new item
-        const newItem = await db('items').insert({ name, description, quantity });
+        const newItem = await db('items').insert({ name, description, quantity, username });
 
         res.json({ message: "Item successfully created", item: newItem });
 
@@ -73,13 +74,13 @@ app.post('/inventory', async (req, res) => {
 
 app.put('/inventory/:id', async (req, res) => {
     const { id } = req.params; 
-    const { name, description, quantity } = req.body; 
+    const { name, description, quantity, username } = req.body; 
 
     try {
         // Update an item
         await db('items')
             .where({ id })
-            .update({ name, description, quantity });
+            .update({ name, description, quantity, username });
 
         res.json({ message: "Item successfully updated" });
 

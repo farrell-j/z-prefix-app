@@ -20,10 +20,10 @@ router.get('/:id', async (req, res) => {
 });
 
 router.post('/', async (req, res) => {
-    const { name, description, quantity } = req.body; 
+    const { name, description, quantity, username } = req.body; 
 
     try {
-        const newItem = await db('items').insert({ name, description, quantity });
+        const newItem = await db('items').insert({ name, description, quantity, username });
 
         res.json({ message: "Item Created", item: newItem });
 

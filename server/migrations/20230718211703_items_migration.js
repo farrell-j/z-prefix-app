@@ -10,6 +10,9 @@ exports.up = function(knex) {
                 table.string('name').notNullable();
                 table.string('description');
                 table.integer('quantity');
+                table.string('username', 50).notNullable();
+
+
             });
         }    
     });
