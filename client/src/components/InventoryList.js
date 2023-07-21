@@ -52,6 +52,7 @@ function InventoryList() {
                     <h2>&ensp;{item.name}</h2>
                     <p>Description: &ensp; <strong>{item.description}</strong></p>
                     <p>Quantity: &ensp;<strong>{item.quantity}</strong></p>
+                    <p>Added by: &ensp;<strong>{item.username}</strong></p>
                     <button onClick={() => setCurrentItem(item)}>Edit</button>
                     {loggedIn && <button onClick={() => handleDelete(item.id)}>Delete</button>}
                 </div>

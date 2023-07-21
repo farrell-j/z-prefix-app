@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { useNavigate } from "react-router-dom";
+import { AuthContext } from './Auth.js';
 import './AddItem.css';
 
 
@@ -7,16 +8,18 @@ function AddItem() {
     const [name, setName] = useState("");
     const [description, setDescription] = useState("");
     const [quantity, setQuantity] = useState("");
+    const { username } = useContext(AuthContext);
     const navigate = useNavigate(); 
 
     const handleSubmit = (e) => {
+        console.log(username); 
         e.preventDefault();
         fetch('http://localhost:3001/inventory', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify({name, description, quantity}),
+            body: JSON.stringify({name, description, quantity, username}),
         }).then(() => {
             navigate("/inventory");
         });

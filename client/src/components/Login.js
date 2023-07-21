@@ -6,8 +6,8 @@ import './Login.css';
 
 const LoginForm = () => {
     const navigate = useNavigate();
-    const { setLoggedIn } = useContext(AuthContext);
-    const [username, setUsername] = useState('');
+    const { setLoggedIn, setUsername } = useContext(AuthContext);
+    const [inputUsername, setInputUsername] = useState('');
     const [password, setPassword] = useState('');
 
     const handleSubmit = async (event) => {
@@ -19,11 +19,12 @@ const LoginForm = () => {
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({ username, password}),
+                body: JSON.stringify({ username: inputUsername, password}),
             });
             if (response.ok) {
                 console.log('Login Success');
                 setLoggedIn(true);
+                setUsername(inputUsername);
                 navigate('/inventory');
             } else {
                 console.error('Login Failed');
@@ -40,8 +41,8 @@ const LoginForm = () => {
         <input
             type="username"
             id="username"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
+            value={inputUsername}
+            onChange={(e) => setInputUsername(e.target.value)}
             required
         />
         <label htmlFor="password">Password:</label>

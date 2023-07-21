@@ -20,11 +20,13 @@ Login and Signup: Users can create an account and log in.
 
 View Inventory: All users can view the current inventory list.
 
-Add Inventory Item: All users can add new inventory items.
+Add Inventory Item: Logged in users can add new inventory items.
 
 Edit Inventory Item: Only Logged-in users can edit existing inventory items.
 
 Delete Inventory Item: Only Logged-in users can delete existing inventory items.
+
+User Tagged Items: Users can see inventory added by them. 
 
 ## Contributing
 Please follow the standard Fork & Pull Request workflow if you want to contribute:
