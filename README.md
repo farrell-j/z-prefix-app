@@ -1,5 +1,8 @@
 # z-prefix-app
 
+![image](https://github.com/Ing-waz/z-prefix-app/assets/130244583/db4c8110-cd36-48ba-8496-15187793e6e8)
+
+
 ## Setup
 Requirements:
 
@@ -47,5 +50,4 @@ Submit a Pull request so that your changes can be reviewed
 Add JWT & Bcrypt for password hashing....
 Create separate inventory pages for each user
 
-![image](https://github.com/Ing-waz/z-prefix-app/assets/130244583/db4c8110-cd36-48ba-8496-15187793e6e8)
 
