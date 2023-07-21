@@ -8,7 +8,9 @@ function InventoryList() {
     const { loggedIn } = useContext(AuthContext);
     const [items, setItems] = useState([]);
     const [currentItem, setCurrentItem] = useState(null);
-
+    const truncateDescription = (desc) => {
+        return desc.length > 100 ? desc.substring(0, 100) + "..." : desc;
+    };
     const fetchItems = () => {
         fetch('http://localhost:3001/inventory')
             .then(response => {
@@ -50,7 +52,7 @@ function InventoryList() {
             {items.map(item => (
                 <div key={item.id} className="inventory-item">
                     <h2>&ensp;{item.name}</h2>
-                    <p>Description: &ensp; <strong>{item.description}</strong></p>
+                    <p>Description: &ensp; <strong>{truncateDescription(item.description)}</strong></p>
                     <p>Quantity: &ensp;<strong>{item.quantity}</strong></p>
                     <p>Added by: &ensp;<strong>{item.username}</strong></p>
                     <button onClick={() => setCurrentItem(item)}>Edit</button>
