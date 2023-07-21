@@ -40,3 +40,7 @@ Commit changes to your own branch
 Push your work back up to your fork
 
 Submit a Pull request so that your changes can be reviewed
+
+## Follow-on Tasks
+Add JWT & Bcrpt for password hashing....
+Create separate inventory pages for each user
