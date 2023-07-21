@@ -9,6 +9,8 @@ npm (usually comes bundled with Node.js),
 
 Create React App,
 
+Knex,
+
 Docker, &
 
 Postgresql
