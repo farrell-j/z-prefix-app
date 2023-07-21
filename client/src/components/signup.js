@@ -5,6 +5,8 @@ const SignupForm = () => {
     const navigate = useNavigate();
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
+    const [first_name, setFirstName] = useState("");
+    const [last_name, setLastName] = useState("");
 
     const handleSubmit = async (event) => {
         event.preventDefault();
@@ -17,7 +19,7 @@ const SignupForm = () => {
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({ username, password }),
+                body: JSON.stringify({ first_name, last_name, username, password }),
             });
 
             if (response.ok) {
@@ -34,8 +36,10 @@ const SignupForm = () => {
     return (
         <form onSubmit={handleSubmit} className="form">
             <label htmlFor="username">Username:</label>
+            
             <input
                 type="username"
+                placeholder="username"
                 id="username"
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
@@ -44,11 +48,22 @@ const SignupForm = () => {
             <label htmlFor="password">Password:</label>
             <input
                 type="password"
+                placeholder="password"
                 id="password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 required
             />
+            <input 
+            type="text" 
+            placeholder="First Name" 
+            value={first_name} 
+            onChange={(e) => setFirstName(e.target.value)} />
+            <input 
+            type="text" 
+            placeholder="Last Name" 
+            value={last_name} 
+            onChange={(e) => setLastName(e.target.value)} />
 
             <button type="submit">Signup</button>
         </form>

@@ -7,7 +7,7 @@ const router = express.Router();
 
 router.post('/users/signup', async (req, res) => {
     console.log(req.body); 
-    const { username, password } = req.body;
+    const { first_name, last_name, username, password } = req.body;
     console.log({ username, password });
 
 
@@ -19,7 +19,7 @@ router.post('/users/signup', async (req, res) => {
             return res.status(409).json({ message: "Username not available" });
         }
         // Add new user
-        await trx('users').insert({ username, password });
+        await trx('users').insert({ first_name, last_name, username, password });
 
         // If the username does not exist, create a new user
         // const newUser = await knex('users').insert({ username, password });
