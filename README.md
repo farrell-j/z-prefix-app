@@ -2,6 +2,8 @@
 
 ![image](https://github.com/Ing-waz/z-prefix-app/assets/130244583/db4c8110-cd36-48ba-8496-15187793e6e8)
 
+This CRUD app was my solo project required to achieve the United States Space Force Z-prefix "Coder" designation. In addition, I was required to complete a solo TDD interview with an instructor in order to pass. 
+A Z-Prefix designation identifies Guardians in any AFSC who perform duties managing, developing, and designing software solutions supporting both acquisition and operational communities within the United States Space Force.
 
 ## Setup
 Requirements:
